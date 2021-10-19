@@ -62,7 +62,7 @@
               <br />
               <p>
                 <br />
-                <a href="/index" class="btn btn-link">
+                <a href="/" class="btn btn-link">
                   Ward member Login
                 </a>
               </p>

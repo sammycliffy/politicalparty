@@ -7,7 +7,7 @@
             <li class="active"><a href="#">Dashboard</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">Update Profile</a></li>
-            <li><a href="/login">Logout</a></li>
+            <li><a href="/">Logout</a></li>
           </ul>
         </nav>
       </aside>

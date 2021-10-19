@@ -120,7 +120,7 @@
                 <br />
                 <p>
                   <br />
-                  <a href="/login" class="btn btn-link">
+                  <a href="/" class="btn btn-link">
                     Ward member Login
                   </a>
                 </p>
