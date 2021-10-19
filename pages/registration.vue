@@ -50,8 +50,7 @@
               <option value="BSC">Bsc</option>
               <option value="HND">HND</option> </select
             ><br />
-            <label for="phone">Date</label>
-            <input type="date" class="form-control" v-model="date" />
+
             <center>
               <br /><br />
               <div v-if="loading == true">
