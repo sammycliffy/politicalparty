@@ -50,6 +50,14 @@
               <option value="BSC">Bsc</option>
               <option value="HND">HND</option> </select
             ><br />
+            <label for="phone">Date of birth</label>
+            <input
+              type="date"
+              class="form-control"
+              name=""
+              v-model="date"
+              required
+            /><br />
 
             <center>
               <br /><br />
