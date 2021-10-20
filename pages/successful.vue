@@ -54,7 +54,7 @@
                   <p id="message">
                     Congratulations, your account has been successfully created.
                   </p>
-                  <a href="/admin" id="contBtn">Continue</a>
+                  <a href="/dashboard" id="contBtn">Continue</a>
                 </div>
               </div>
               <!-- partial -->

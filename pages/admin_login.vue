@@ -3,10 +3,11 @@
     <div class="row">
       <div class="col-lg-3"></div>
       <div class="col-lg-6">
-        <div class="heading"><span>Member Registration</span></div>
+        <br /><br />
+        <div class="heading"><span>Admin Login</span></div>
         <div class="center-div">
+          <p style="color:red;">{{ error }}</p>
           <form method="post" @submit.prevent="handleSubmit">
-            <p style="color:red;">{{ error }}</p>
             <label for="email">Email</label><br />
             <input
               type="email"
@@ -26,7 +27,7 @@
               <input type="submit" class="btn btn-primary" value="Login" />
               <br />
               <br />
-              <a href="/registration">Register a new member</a>
+              <!-- <a href="/registration">Register a new member</a> -->
             </center>
           </form>
         </div>
@@ -61,7 +62,7 @@ export default {
             localStorage.setItem("token", response.data.token);
             console.log(response.data);
             this.loading = false;
-            window.location.href = "/dashboard";
+            window.location.href = "/admin";
           }
         })
         .catch(error => {
@@ -79,7 +80,7 @@ export default {
 
 <style>
 .btn-success {
-  background: #014379;
+  background: #000000;
 }
 
 label {
@@ -101,7 +102,7 @@ h4 {
 }
 
 .heading {
-  background: #014379;
+  background: #000000;
   color: white;
   width: 100%;
   font-size: 25px;

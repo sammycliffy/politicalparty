@@ -7,6 +7,14 @@
         <div class="center-div">
           <form method="post" @submit.prevent="handleSubmit">
             <span class="error">{{ error }}</span>
+            <label for="date">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              v-model="username"
+              required
+            /><br />
             <label for="date">Fullname</label>
             <input
               type="text"
@@ -71,7 +79,7 @@
               <p>
                 <br />
                 <a href="/" class="btn btn-link">
-                  Ward member Login
+                  Member Login
                 </a>
               </p>
             </center>
@@ -87,6 +95,7 @@
 export default {
   data() {
     return {
+      username: "",
       email: "",
       fullname: "",
       phonenumber: "",
@@ -106,6 +115,7 @@ export default {
     async handleSubmit({ $axios }) {
       this.loading = true;
       const datas = {
+        username: this.username,
         full_name: this.fullname,
         email: this.email,
         phone_number: this.phonenumber,

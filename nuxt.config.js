@@ -14,8 +14,19 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: "stylesheet", type: "text/css", href: '/styles.css' },
       { rel: "stylesheet", type: "text/css", href: 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' },
 
+    ],
+    script: [
+      {
+        type: 'text/javascript',
+        src: 'https://cdn.jsdelivr.net/npm/simple-datatables@latest',
+      },
+      {
+        type: 'text/javascript',
+        src: '/datatables-simple-demo.js',
+      },
     ]
   },
 
@@ -46,7 +57,8 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-      baseURL: 'https://phdpolitical.herokuapp.com', 
+    baseURL: 'https://phdpolitical.herokuapp.com', 
+    // baseURL: 'http://localhost:8000', 
     
   },
 
