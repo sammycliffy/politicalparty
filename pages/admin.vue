@@ -265,13 +265,13 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="item in users" :key="item.email">
+                      <!-- <tr v-for="item in users" :key="item.email">
                         <td>{{ item.full_name }}</td>
                         <td>{{ item.phone_number }}</td>
                         <td>{{ item.email }}</td>
                         <td>{{ item.qualification }}</td>
                         <td>{{ item.dateOfBirth }}</td>
-                      </tr>
+                      </tr> -->
                     </tbody>
                   </table>
                 </div>
