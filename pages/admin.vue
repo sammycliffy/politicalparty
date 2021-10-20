@@ -309,7 +309,7 @@
         src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
         crossorigin="anonymous"
       ></script>
-      <script src="js/datatables-simple-demo.js"></script>
+      <script src="datatables-simple-demo.js"></script>
     </body>
   </div>
 </template>
