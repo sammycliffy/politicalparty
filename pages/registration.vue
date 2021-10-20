@@ -6,7 +6,9 @@
         <div class="heading"><span>Member Registration</span></div>
         <div class="center-div">
           <form method="post" @submit.prevent="handleSubmit">
-            <span class="error">{{ error }}</span>
+            <span style="color:red">{{ error }}</span
+            ><br />
+
             <label for="date">Username</label>
             <input
               type="text"
