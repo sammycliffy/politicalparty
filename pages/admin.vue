@@ -265,13 +265,13 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <!-- <tr v-for="item in users" :key="item.email">
+                      <tr v-for="item in users" :key="item.email">
                         <td>{{ item.full_name }}</td>
                         <td>{{ item.phone_number }}</td>
                         <td>{{ item.email }}</td>
                         <td>{{ item.qualification }}</td>
                         <td>{{ item.dateOfBirth }}</td>
-                      </tr> -->
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -305,43 +305,48 @@
     ></script> -->
       <!-- <script src="assets/demo/chart-area-demo.js"></script>
     <script src="assets/demo/chart-bar-demo.js"></script> -->
+      <script
+        src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
+        crossorigin="anonymous"
+      ></script>
+      <script src="datatables-simple-demo.js"></script>
     </body>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      users: []
-    };
-  },
-  mounted() {
-    const token = localStorage.getItem("token");
+// export default {
+//   data() {
+//     return {
+//       users: []
+//     };
+//   },
+//   mounted() {
+//     const token = localStorage.getItem("token");
 
-    this.$axios
-      .get("/api/v1/admin/", {
-        headers: {
-          Authorization: "Token " + token
-        }
-      })
-      .then(response => {
-        console.log(token);
-        // console.log(response.data);
-        if (response.status === 201) {
-          this.users = response.data;
-        }
-      })
-      .catch(error => {
-        this.loading = false;
-        console.log(error.response);
-        for (const [key, value] of Object.entries(error.response.data)) {
-          var str = `${key}: ${value}`;
-          this.error = str.substring(str.indexOf(":") + 1);
-        }
-      });
-  }
-};
+//     this.$axios
+//       .get("/api/v1/admin/", {
+//         headers: {
+//           Authorization: "Token " + token
+//         }
+//       })
+//       .then(response => {
+//         console.log(token);
+//         // console.log(response.data);
+//         if (response.status === 201) {
+//           this.users = response.data;
+//         }
+//       })
+//       .catch(error => {
+//         this.loading = false;
+//         console.log(error.response);
+//         for (const [key, value] of Object.entries(error.response.data)) {
+//           var str = `${key}: ${value}`;
+//           this.error = str.substring(str.indexOf(":") + 1);
+//         }
+//       });
+//   }
+// };
 </script>
 
 <style scoped></style>
