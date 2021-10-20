@@ -248,7 +248,7 @@
                   </div>
                 </div>
               </div> -->
-              <div class="card mb-4">
+              <!-- <div class="card mb-4">
                 <div class="card-header">
                   <i class="fas fa-table me-1"></i>
                   List of Ward Member
@@ -275,7 +275,7 @@
                     </tbody>
                   </table>
                 </div>
-              </div>
+              </div> -->
             </div>
           </main>
           <footer class="py-4 bg-light mt-auto">
@@ -315,38 +315,34 @@
 </template>
 
 <script>
-// export default {
-//   data() {
-//     return {
-//       users: []
-//     };
-//   },
-//   mounted() {
-//     const token = localStorage.getItem("token");
+export default {
+  data() {
+    return {
+      users: []
+    };
+  },
+  mounted() {
+    const token = localStorage.getItem("token");
 
-//     this.$axios
-//       .get("/api/v1/admin/", {
-//         headers: {
-//           Authorization: "Token " + token
-//         }
-//       })
-//       .then(response => {
-//         console.log(token);
-//         // console.log(response.data);
-//         if (response.status === 201) {
-//           this.users = response.data;
-//         }
-//       })
-//       .catch(error => {
-//         this.loading = false;
-//         console.log(error.response);
-//         for (const [key, value] of Object.entries(error.response.data)) {
-//           var str = `${key}: ${value}`;
-//           this.error = str.substring(str.indexOf(":") + 1);
-//         }
-//       });
-//   }
-// };
+    this.$axios
+      .get("/api/v1/admin/", {
+        headers: {
+          Authorization: "Token " + token
+        }
+      })
+      .then(response => {
+        console.log(token);
+        // console.log(response.data);
+        if (response.status === 201) {
+          this.users = response.data;
+        }
+      })
+      .catch(error => {
+        this.loading = false;
+        console.log(error.response);
+      });
+  }
+};
 </script>
 
 <style scoped></style>
