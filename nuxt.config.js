@@ -53,16 +53,27 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/apollo',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'https://phdpolitical.herokuapp.com', 
+    baseURL: 'https://phdpolitical.herokuapp.com',
     // baseURL: 'http://localhost:8000', 
     
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'http://localhost:8000/graphql',
+      }
+    },
+  
+
+    // Build Configuration: https://go.nuxtjs.dev/config-build
+    build: {
+    }
   }
+  
 }
