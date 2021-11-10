@@ -66,7 +66,7 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: 'http://localhost:8000/graphql',
+        httpEndpoint: 'https://nifty-kowalevski-7df46f.netlify.app/graphql',
       }
     },
   
