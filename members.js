@@ -1,30 +1,37 @@
 import gql from 'graphql-tag' 
 
 export const PARTY_MUTATION = gql`
-  mutation createMutation($fullName: String!, $email: String!, $phoneNumber: String!,
-  $qualification: String!, $noOfPosition: String!,
-  $attendance: String!, $performance :String!, $contribution: String!, $duration: String!,
-  $loyalty: String!, $partyName: String!, $partyCode: String!, $wardCode: String!
+  mutation createMutation($username: String!, $fullName: String!, $email: String!, 
+    $phoneNumber: String!,$dateOfBirth: String!,$sex: String!,
+    $maritalStatus: String!,$noOfPosition: String!,  $attendance: String!,$performance :String!,
+    $partyName: String!, $partyCode: String!, $contribution: String!, $qualification: String!, 
+    $duration: String!, $wardCode: String!, $votersPin: String!
+  $position: String!,  
   
   
   ) {
-    
       createPartymember(partyData:{
+        username: $username,
         fullName: $fullName,
         email: $email,
         phoneNumber: $phoneNumber,
-        qualification: $qualification,
-        noOfPosition: $noOfPosition,
+        dateOfBirth: $dateOfBirth,
+        sex: $sex,
+        maritalStatus:$maritalStatus,
+        noOfPosition:$noOfPosition,
         attendance: $attendance,
         performance: $performance,
-        contribution: $contribution,
-        duration: $duration,
-        loyalty: $loyalty,
         partyName: $partyName,
         partyCode: $partyCode,
+        contribution: $contribution,
+        duration: $duration,
         wardCode: $wardCode,
+        votersPin: $votersPin,
+        position:$position,
+        qualification:$qualification
       }){
-        partyMember{ fullName,
+        partyMember{ 
+        fullName,
         email,
         phoneNumber,
         qualification,
@@ -33,7 +40,6 @@ export const PARTY_MUTATION = gql`
         performance,
         contribution,
         duration,
-        loyalty,
         partyName,
         partyCode,
         wardCode

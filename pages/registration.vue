@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-lg-3"></div>
+      <div class="col-lg-6"></div>
       <div class="col-lg-6">
         <div class="heading"><span>Member Registration</span></div>
         <div class="center-div">
@@ -172,7 +172,6 @@
           </form>
         </div>
       </div>
-      <div class="col-lg-3"></div>
     </div>
   </div>
 </template>

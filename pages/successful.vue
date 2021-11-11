@@ -52,9 +52,9 @@
                 </div>
                 <div id="lower-side">
                   <p id="message">
-                    Congratulations, your account has been successfully created.
+                    Congratulations, your data has been added.
                   </p>
-                  <a href="/dashboard" id="contBtn">Continue</a>
+                  <a href="/" id="contBtn">Continue</a>
                 </div>
               </div>
               <!-- partial -->

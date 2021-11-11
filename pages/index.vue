@@ -1,21 +1,19 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3"></div>
-      <div class="col-lg-6">
-        <div class="heading"><span>Member Registration</span></div>
-        <div class="center-div">
-          <form method="post" @submit.prevent="signup">
-            <span style="color:red">{{ error }}</span
-            ><br />
-            <!-- <label for="date">Username</label>
+  <div class="body">
+    <div class="heading"><span>Member Registration</span></div>
+    <form action="" method="post" @submit.prevent="signup">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5">
+            <br />
+            <label for="date">Username</label>
             <input
               type="text"
               class="form-control"
               name=""
               v-model="username"
               required
-            /><br /> -->
+            /><br />
             <label for="date">Fullname</label>
             <input
               type="text"
@@ -37,9 +35,42 @@
               type="text"
               class="form-control"
               name=""
-              v-model="phonenumber"
+              v-model="phoneNumber"
               required
             /><br />
+            <label for="phone">Date of birth</label>
+            <input
+              type="date"
+              v-model="dateOfBirth"
+              class="form-control"
+            /><br />
+            <label for="date">Gender</label>
+            <select
+              name="gender"
+              @change="onGender($event)"
+              class="form-control"
+            >
+              <option value="Male">Male</option>
+              <option value="Female">Female</option> </select
+            ><br />
+            <label for="date">Marital Status</label>
+            <select
+              name="gender"
+              @change="onMaritalStatus($event)"
+              class="form-control"
+            >
+              <option value="Single">Single</option>
+              <option value="Married">Married</option> </select
+            ><br />
+            <label for="phone">Voters Pin</label>
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              v-model="votersPin"
+              required
+            />
+            <br />
             <label for="phone">Party Name</label>
             <input
               type="text"
@@ -48,6 +79,10 @@
               v-model="partyName"
               required
             /><br />
+          </div>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-5">
+            <br />
             <label for="phone">Party Code</label>
             <input
               type="text"
@@ -60,7 +95,6 @@
 
             <select
               name="qualification"
-              id="cars"
               class="form-control"
               @change="onQualification($event)"
               ><option value="PHD">PHD</option>
@@ -70,7 +104,27 @@
               <option value="HND">SSCE</option>
               <option value="HND">FSLC</option> </select
             ><br />
-            <label for="date">Ward CODE</label>
+            <label for="date">Position Elected</label>
+            <select name="cars" id="cars" class="form-control">
+              <option value="WARDLEADER">Ward Leader</option>
+              <option value="VICECHAIRMAN">Ward Chairman</option>
+              <option value="WARDCHAIRMAN">Vice Ward Chairman</option>
+              <option value="SECRETARY">Secretary</option>
+              <option value="YOUTHLEADER">Youth Leader</option>
+              <option value="WOMANLEADER">Woman Leader</option>
+              <option value="FINANCIALLEADER">Financial Secretary</option>
+              <option value="TREASURER">Treasurer</option>
+              <option value="PARTYCHAIRMAN">Party Chairman</option>
+              <option value="VICEPARTYCHAIRMAN">Vice Party Chairman</option>
+              <option value="PUBLICITYSECRETARY"> Publicity Secretary</option>
+              <option value="LEGALADVISER">LG legal adviser</option>
+              <option value="STATECHAIRMAN">State Chairman</option>
+              <option value="VICESTATECHAIRMAN">Vice state Chairman</option>
+              <option value="NOPOSITION">No Position</option>
+              <option value="STATEORGANIZING">State organizing</option> </select
+            ><br />
+
+            <label for="date">Ward Code</label>
             <input
               type="text"
               class="form-control"
@@ -79,7 +133,7 @@
               v-model="wardCode"
               required
             /><br />
-            <label for="date">Attendace</label>
+            <label for="date">Attendance</label>
             <input
               type="number"
               class="form-control"
@@ -124,36 +178,16 @@
               v-model="duration"
               required
             /><br />
-            <label for="date">Loyalty</label>
             <input
-              type="number"
-              class="form-control"
-              name=""
-              id=""
-              v-model="loyalty"
-              required
-            /><br />
-            <center>
-              <br /><br />
-              <div v-if="loading == true">
-                <Loader />
-              </div>
-              <div v-else>
-                <button class="btn btn-primary">Continue</button>
-              </div>
-              <br />
-              <p>
-                <br />
-                <a href="/" class="btn btn-link">
-                  Member Login
-                </a>
-              </p>
-            </center>
-          </form>
+              type="submit"
+              class="btn btn-success btn-lg"
+              value="Save Details"
+            />
+            <br /><br /><br /><br /><br />
+          </div>
         </div>
       </div>
-      <div class="col-lg-3"></div>
-    </div>
+    </form>
   </div>
 </template>
 
@@ -163,24 +197,26 @@ export default {
   data() {
     return {
       username: "",
-      email: "",
       fullname: "",
-      phonenumber: "",
-      password: "",
-      date: "",
-      partyCode: "",
-      partyName: "",
+      email: "",
+      phoneNumber: "",
+      dateOfBirth: "",
+      sex: "",
+      maritalStatus: "",
+      noOfPosition: "",
       attendance: "",
       performance: "",
+      partyName: "",
+      partyCode: "",
       contribution: "",
       duration: "",
-      loyalty: "",
-      noOfPosition: "",
-      loading: false,
-      success: false,
-      qualification: "HND",
       wardCode: "",
-      error: ""
+      votersPin: "",
+      position: "",
+      qualification: "HND",
+      error: "",
+      loading: false,
+      success: false
     };
   },
 
@@ -189,28 +225,42 @@ export default {
       this.qualification = event.target.value;
       console.log(event.target.value);
     },
+    onGender: function(event) {
+      this.gender = event.target.value;
+      console.log(event.target.value);
+    },
+    onMaritalStatus: function(event) {
+      this.maritalStatus = event.target.value;
+      console.log(event.target.value);
+    },
     signup() {
+      console.log(this.noOfPosition);
       this.$apollo
         .mutate({
           mutation: PARTY_MUTATION,
           variables: {
+            username: this.username,
             fullName: this.fullname,
             email: this.email,
-            phoneNumber: this.phonenumber,
-            qualification: this.qualification,
+            phoneNumber: this.phoneNumber,
+            dateOfBirth: this.dateOfBirth,
+            sex: this.sex,
+            maritalStatus: this.maritalStatus,
             noOfPosition: this.noOfPosition,
             attendance: this.attendance,
             performance: this.performance,
-            contribution: this.contribution,
-            duration: this.duration,
-            loyalty: this.loyalty,
             partyName: this.partyName,
             partyCode: this.partyCode,
-            wardCode: this.wardCode
+            contribution: this.contribution,
+            duration: this.duration,
+            wardCode: this.wardCode,
+            votersPin: this.votersPin,
+            position: this.position,
+            qualification: this.qualification
           }
         })
         .then(response => {
-          alert("Saved successfully");
+          window.location.href = "/successful";
           // redirect to login page
           // this.$router.replace("/login");
         })
@@ -228,6 +278,9 @@ export default {
 </script>
 
 <style>
+.body {
+  background-color: #eeeeee;
+}
 .btn-success {
   background: rgb(41, 4, 65);
 }
