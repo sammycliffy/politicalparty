@@ -70,6 +70,26 @@
               <option value="HND">SSCE</option>
               <option value="HND">FSLC</option> </select
             ><br />
+            <label for="date">Position Elected</label>
+            <select name="cars" id="cars" class="form-control">
+              <option value="WARDLEADER">Ward Leader</option>
+              <option value="VICECHAIRMAN">Ward Chairman</option>
+              <option value="WARDCHAIRMAN">Vice Ward Chairman</option>
+              <option value="SECRETARY">Secretary</option>
+              <option value="YOUTHLEADER">Youth Leader</option>
+              <option value="WOMANLEADER">Woman Leader</option>
+              <option value="FINANCIALLEADER">Financial Secretary</option>
+              <option value="TREASURER">Treasurer</option>
+              <option value="PARTYCHAIRMAN">Party Chairman</option>
+              <option value="VICEPARTYCHAIRMAN">Vice Party Chairman</option>
+              <option value="PUBLICITYSECRETARY"> Publicity Secretary</option>
+              <option value="LEGALADVISER">LG legal adviser</option>
+              <option value="STATECHAIRMAN">State Chairman</option>
+              <option value="VICESTATECHAIRMAN">Vice state Chairman</option>
+              <option value="NOPOSITION">No Position</option>
+              <option value="STATEORGANIZING">State organizing</option> </select
+            ><br />
+
             <label for="date">Ward CODE</label>
             <input
               type="text"
@@ -139,15 +159,15 @@
                 <Loader />
               </div>
               <div v-else>
-                <button class="btn btn-primary">Continue</button>
+                <button class="btn btn-primary">Save</button>
               </div>
               <br />
-              <p>
+              <!-- <p>
                 <br />
                 <a href="/" class="btn btn-link">
                   Member Login
                 </a>
-              </p>
+              </p> -->
             </center>
           </form>
         </div>
