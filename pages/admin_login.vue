@@ -1,69 +1,92 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3"></div>
-      <div class="col-lg-6">
-        <br /><br />
-        <div class="heading"><span>Admin Login</span></div>
-        <div class="center-div">
-          <p style="color:red;">{{ error }}</p>
-          <form method="post" @submit.prevent="handleSubmit">
-            <label for="email">Email</label><br />
-            <input
-              type="email"
-              class="form-control"
-              v-model="email"
-              required
-            /><br />
-            <label for="password">Password</label><br />
-            <input
-              type="password"
-              v-model="password"
-              required
-              class="form-control"
-            />
-            <br />
-            <center>
-              <input type="submit" class="btn btn-primary" value="Login" />
-              <br />
-              <br />
-              <!-- <a href="/registration">Register a new member</a> -->
-            </center>
-          </form>
+  <div class="body">
+    <div class="heading">
+      <span>POLITICAL PARTY QUERY PROCESSING PROJECT</span>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="col-lg-6">
+            <div class="jumbotron"></div>
+          </div>
         </div>
       </div>
-      <div class="col-lg-3"></div>
     </div>
   </div>
 </template>
 
 <script>
+import { PARTY_MUTATION } from "@/members";
 export default {
   data() {
     return {
+      username: "",
+      fullname: "",
       email: "",
-      password: "",
-      error: ""
+      phoneNumber: "",
+      dateOfBirth: "",
+      sex: "",
+      maritalStatus: "",
+      noOfPosition: "",
+      attendance: "",
+      performance: "",
+      partyName: "",
+      partyCode: "",
+      contribution: "",
+      duration: "",
+      wardCode: "",
+      votersPin: "",
+      position: "",
+      qualification: "HND",
+      error: "",
+      loading: false,
+      success: false
     };
   },
 
   methods: {
-    async handleSubmit({ $axios }) {
-      this.loading = true;
-      const datas = {
-        email: this.email,
-        password: this.password
-      };
-      this.$axios
-        .post("/api/v1/login/", datas)
-        .then(response => {
-          console.log(response.data);
-          if (response.status === 201) {
-            localStorage.setItem("token", response.data.token);
-            console.log(response.data);
-            this.loading = false;
-            window.location.href = "/admin";
+    onQualification: function(event) {
+      this.qualification = event.target.value;
+      console.log(event.target.value);
+    },
+    onGender: function(event) {
+      this.gender = event.target.value;
+      console.log(event.target.value);
+    },
+    onMaritalStatus: function(event) {
+      this.maritalStatus = event.target.value;
+      console.log(event.target.value);
+    },
+    signup() {
+      console.log(this.noOfPosition);
+      this.$apollo
+        .mutate({
+          mutation: PARTY_MUTATION,
+          variables: {
+            username: this.username,
+            fullName: this.fullname,
+            email: this.email,
+            phoneNumber: this.phoneNumber,
+            dateOfBirth: this.dateOfBirth,
+            sex: this.sex,
+            maritalStatus: this.maritalStatus,
+            noOfPosition: this.noOfPosition,
+            attendance: this.attendance,
+            performance: this.performance,
+            partyName: this.partyName,
+            partyCode: this.partyCode,
+            contribution: this.contribution,
+            duration: this.duration,
+            wardCode: this.wardCode,
+            votersPin: this.votersPin,
+            position: this.position,
+            qualification: this.qualification
           }
+        })
+        .then(response => {
+          window.location.href = "/successful";
+          // redirect to login page
+          // this.$router.replace("/login");
         })
         .catch(error => {
           this.loading = false;
@@ -79,8 +102,11 @@ export default {
 </script>
 
 <style>
+.body {
+  background-color: #eeeeee;
+}
 .btn-success {
-  background: #000000;
+  background: rgb(41, 4, 65);
 }
 
 label {
@@ -102,7 +128,7 @@ h4 {
 }
 
 .heading {
-  background: #000000;
+  background: #014379;
   color: white;
   width: 100%;
   font-size: 25px;
@@ -124,7 +150,6 @@ h4 {
   background-color: white;
   border: 2px solid #eeeeee;
   box-shadow: inset;
-
   border-radius: 5px;
   color: dimgrey;
 }

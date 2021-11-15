@@ -13,22 +13,7 @@
           <i class="fas fa-bars"></i>
         </button>
         <!-- Navbar Search-->
-        <form
-          class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
-        >
-          <div class="input-group">
-            <input
-              class="form-control"
-              type="text"
-              placeholder="Search for..."
-              aria-label="Search for..."
-              aria-describedby="btnNavbarSearch"
-            />
-            <button class="btn btn-primary" id="btnNavbarSearch" type="button">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </form>
+
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
           <li class="nav-item dropdown">
@@ -64,7 +49,7 @@
                 <!-- <div class="sb-sidenav-menu-heading">Interface</div> -->
                 <a
                   class="nav-link collapsed"
-                  href="/graph_database"
+                  href="#"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseLayouts"
                   aria-expanded="false"
@@ -111,7 +96,7 @@
                 </a> -->
                 <a
                   class="nav-link collapsed"
-                  href="/random_forest"
+                  href="/users"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapsePages"
                   aria-expanded="false"
@@ -168,134 +153,38 @@
         <div id="layoutSidenav_content">
           <main>
             <div class="container-fluid px-4">
-              <h1 class="mt-4">Hi, Welcome</h1>
+              <h1 class="mt-4">Graph Database</h1>
               <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">
-                  Random Forest and GraphQL
+                  Query database
                 </li>
               </ol>
+              <a style="float:right" href="" class="btn btn-success"
+                >All members</a
+              >
               <div class="row">
-                <div class="col-xl-5 col-md-6">
-                  <div class="card bg-primary text-white mb-4">
-                    <div class="card-body">Graph Database</div>
-                    <div
-                      class="card-footer d-flex align-items-center justify-content-between"
-                    >
-                      <a
-                        class="small text-white stretched-link"
-                        href="/graph_database"
-                        >Query database using GraphQL</a
-                      >
-                      <div class="small text-white">
-                        <i class="fas fa-angle-right"></i>
-                      </div>
-                    </div>
-                  </div>
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                  <form action="">
+                    <input
+                      type="text"
+                      name=""
+                      placeholder="Username"
+                      class="form-control"
+                      id=""
+                    /><br />
+
+                    <center>
+                      <input
+                        type="submit"
+                        class="btn btn-lg btn-success"
+                        value="Submit"
+                      />
+                    </center>
+                  </form>
                 </div>
-                <div class="col-xl-5 col-md-6">
-                  <div class="card bg-success text-white mb-4">
-                    <div class="card-body">Random Forest Classification</div>
-                    <div
-                      class="card-footer d-flex align-items-center justify-content-between"
-                    >
-                      <a
-                        class="small text-white stretched-link"
-                        href="/random_forest"
-                        >User classification</a
-                      >
-                      <div class="small text-white">
-                        <i class="fas fa-angle-right"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- <div class="col-xl-3 col-md-6">
-                  <div class="card bg-success text-white mb-4">
-                    <div class="card-body">State Executive</div>
-                    <div
-                      class="card-footer d-flex align-items-center justify-content-between"
-                    >
-                      <a class="small text-white stretched-link" href="#"
-                        >Perform Prediction</a
-                      >
-                      <div class="small text-white">
-                        <i class="fas fa-angle-right"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
-                <!-- <div class="col-xl-3 col-md-6">
-                  <div class="card bg-danger text-white mb-4">
-                    <div class="card-body">National Executive</div>
-                    <div
-                      class="card-footer d-flex align-items-center justify-content-between"
-                    >
-                      <a class="small text-white stretched-link" href="#"
-                        >Perform Prediction</a
-                      >
-                      <div class="small text-white">
-                        <i class="fas fa-angle-right"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
+                <div class="col-lg-3"></div>
               </div>
-              <!-- <div class="row">
-                <div class="col-xl-6">
-                  <div class="card mb-4">
-                    <div class="card-header">
-                      <i class="fas fa-chart-area me-1"></i>
-                      Area Chart Example
-                    </div>
-                    <div class="card-body">
-                      <canvas
-                        id="myAreaChart"
-                        width="100%"
-                        height="40"
-                      ></canvas>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-6">
-                  <div class="card mb-4">
-                    <div class="card-header">
-                      <i class="fas fa-chart-bar me-1"></i>
-                      Bar Chart Example
-                    </div>
-                    <div class="card-body">
-                      <canvas id="myBarChart" width="100%" height="40"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-              <!-- <div class="card mb-4">
-                <div class="card-header">
-                  <i class="fas fa-table me-1"></i>
-                  List of Ward Member
-                </div>
-                <div class="card-body">
-                  <table class="table table-hover table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Full Name</th>
-                        <th>Phone Number</th>
-                        <th>Email</th>
-                        <th>Qualification</th>
-                        <th>Date of Birth</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr v-for="item in users" :key="item.email">
-                        <td>{{ item.full_name }}</td>
-                        <td>{{ item.phone_number }}</td>
-                        <td>{{ item.email }}</td>
-                        <td>{{ item.qualification }}</td>
-                        <td>{{ item.dateOfBirth }}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div> -->
             </div>
           </main>
           <footer class="py-4 bg-light mt-auto">

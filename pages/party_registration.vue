@@ -1,199 +1,269 @@
 <template>
-  <div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-6">
-          <div class="heading"><span>Party Registration</span></div>
-          <div class="center-div">
-            <form action="" method="post" @submit.prevent="handleSubmit">
-              <label for="partyname">Party Name</label>
-              <input
-                type="text"
-                class="form-control"
-                v-model="partyname"
-                required
-              /><br />
-              <label for="partyCode">Party code</label>
-              <input
-                type="text"
-                class="form-control"
-                v-model="partycode"
-                required
-              /><br />
-              <label for="wardCode">Ward code</label>
-              <input
-                type="text"
-                class="form-control"
-                name=""
-                id=""
-                v-model="wardcode"
-                required
-              /><br />
-              <label for="date">Voter's Card pin</label>
-              <input
-                type="text"
-                class="form-control"
-                v-model="voterspin"
-                required
-              /><br />
-              <label for="qualification">Gender</label>
-              <select class="form-control" @change="onGender($event)">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option> </select
-              ><br />
-              <label for="marital">Marital Status</label>
-              <select
-                name="cars"
-                id="cars"
-                class="form-control"
-                @change="onMarital($event)"
-              >
-                <option value="Single">Single</option>
-                <option value="Married">Married</option> </select
-              ><br />
-              <label for="date">Position Elected</label>
-              <select name="cars" id="cars" class="form-control">
-                <option value="WARDLEADER">Ward Leader</option>
-                <option value="VICECHAIRMAN">Ward Chairman</option>
-                <option value="WARDCHAIRMAN">Vice Ward Chairman</option>
-                <option value="SECRETARY">Secretary</option>
-                <option value="YOUTHLEADER">Youth Leader</option>
-                <option value="WOMANLEADER">Woman Leader</option>
-                <option value="FINANCIALLEADER">Financial Secretary</option>
-                <option value="TREASURER">Treasurer</option>
-                <option value="PARTYCHAIRMAN">Party Chairman</option>
-                <option value="VICEPARTYCHAIRMAN">Vice Party Chairman</option>
-                <option value="PUBLICITYSECRETARY"> Publicity Secretary</option>
-                <option value="LEGALADVISER">LG legal adviser</option>
-                <option value="STATECHAIRMAN">State Chairman</option>
-                <option value="VICESTATECHAIRMAN">Vice state Chairman</option>
-                <option value="STATEORGANIZING"
-                  >State organizing</option
-                > </select
-              ><br />
-              <label for="duation">Duration of position (Years)</label>
-              <input
-                type="number"
-                class="form-control"
-                name=""
-                id=""
-                v-model="duration"
-                required
-              /><br />
-              <label for="date">Years of experience</label>
-              <input
-                type="number"
-                class="form-control"
-                name=""
-                id=""
-                v-model="experience"
-                required
-              /><br />
-              <label for="date">Performance in the party</label>
-              <input
-                type="number"
-                class="form-control"
-                name=""
-                id=""
-                v-model="performance"
-                required
-              /><br />
-              <label for="date">Registration Date</label>
-              <input
-                type="date"
-                class="form-control"
-                name=""
-                id=""
-                v-model="registrationdate"
-                required
-              /><br />
+  <div class="body">
+    <div class="heading"><span>Member Registration</span></div>
+    <form action="" method="post" @submit.prevent="signup">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5">
+            <br />
+            <label for="date">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              v-model="username"
+              required
+            /><br />
+            <label for="date">Fullname</label>
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              v-model="fullname"
+              required
+            /><br />
+            <label for="date">email</label>
+            <input
+              type="email"
+              class="form-control"
+              name=""
+              v-model="email"
+              required
+            /><br />
+            <label for="phone">Phone number</label>
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              v-model="phoneNumber"
+              required
+            /><br />
+            <label for="phone">Date of birth</label>
+            <input
+              type="date"
+              v-model="dateOfBirth"
+              class="form-control"
+            /><br />
+            <label for="date">Gender</label>
+            <select
+              name="gender"
+              @change="onGender($event)"
+              class="form-control"
+            >
+              <option value="Male">Male</option>
+              <option value="Female">Female</option> </select
+            ><br />
+            <label for="date">Marital Status</label>
+            <select
+              name="gender"
+              @change="onMaritalStatus($event)"
+              class="form-control"
+            >
+              <option value="Single">Single</option>
+              <option value="Married">Married</option> </select
+            ><br />
+            <label for="phone">Voters Pin</label>
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              v-model="votersPin"
+              required
+            />
+            <br />
+            <label for="phone">Party Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              v-model="partyName"
+              required
+            /><br />
+          </div>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-5">
+            <br />
+            <label for="phone">Party Code</label>
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              v-model="partyCode"
+              required
+            /><br />
+            <label for="phone">Qualification</label>
 
-              <center>
-                <br /><br />
-                <div v-if="loading == true">
-                  <Loader />
-                </div>
-                <div v-else>
-                  <button class="btn btn-primary">Continue</button>
-                </div>
-                <br />
-                <p>
-                  <br />
-                  <a href="/" class="btn btn-link">
-                    Ward member Login
-                  </a>
-                </p>
-              </center>
-            </form>
+            <select
+              name="qualification"
+              class="form-control"
+              @change="onQualification($event)"
+              ><option value="PHD">PHD</option>
+              <option value="MASTERS">Masters</option>
+              <option value="BSC">Bsc</option>
+              <option value="HND">HND</option>
+              <option value="HND">SSCE</option>
+              <option value="HND">FSLC</option> </select
+            ><br />
+            <label for="date">Position Elected</label>
+            <select name="cars" id="cars" class="form-control">
+              <option value="WARDLEADER">Ward Leader</option>
+              <option value="VICECHAIRMAN">Ward Chairman</option>
+              <option value="WARDCHAIRMAN">Vice Ward Chairman</option>
+              <option value="SECRETARY">Secretary</option>
+              <option value="YOUTHLEADER">Youth Leader</option>
+              <option value="WOMANLEADER">Woman Leader</option>
+              <option value="FINANCIALLEADER">Financial Secretary</option>
+              <option value="TREASURER">Treasurer</option>
+              <option value="PARTYCHAIRMAN">Party Chairman</option>
+              <option value="VICEPARTYCHAIRMAN">Vice Party Chairman</option>
+              <option value="PUBLICITYSECRETARY"> Publicity Secretary</option>
+              <option value="LEGALADVISER">LG legal adviser</option>
+              <option value="STATECHAIRMAN">State Chairman</option>
+              <option value="VICESTATECHAIRMAN">Vice state Chairman</option>
+              <option value="NOPOSITION">No Position</option>
+              <option value="STATEORGANIZING">State organizing</option> </select
+            ><br />
+
+            <label for="date">Ward Code</label>
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              id=""
+              v-model="wardCode"
+              required
+            /><br />
+            <label for="date">Attendance</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id=""
+              v-model="attendance"
+              required
+            /><br />
+            <label for="date">No of positions</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id=""
+              v-model="noOfPosition"
+              required
+            /><br />
+            <label for="date">Performance</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id=""
+              v-model="performance"
+              required
+            /><br />
+            <label for="date">Contribution</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id=""
+              v-model="contribution"
+              required
+            /><br />
+            <label for="date">Duration</label>
+            <input
+              type="number"
+              class="form-control"
+              name=""
+              id=""
+              v-model="duration"
+              required
+            /><br />
+            <input
+              type="submit"
+              class="btn btn-success btn-lg"
+              value="Save Details"
+            />
+            <br /><br /><br /><br /><br />
           </div>
         </div>
-        <div class="col-lg-3"></div>
       </div>
-    </div>
+    </form>
   </div>
 </template>
 
 <script>
+import { PARTY_MUTATION } from "@/members";
 export default {
   data() {
     return {
-      partyname: "",
-      partycode: "",
-      wardcode: "",
-      voterspin: "",
-      gender: "Male",
-      marital: "Single",
-      loading: false,
-      position: "WARDLEADER",
-      duration: "",
+      username: "",
+      fullname: "",
+      email: "",
+      phoneNumber: "",
+      dateOfBirth: "",
+      sex: "",
+      maritalStatus: "",
+      noOfPosition: "",
+      attendance: "",
       performance: "",
-      experience: "",
-      registrationdate: ""
+      partyName: "",
+      partyCode: "",
+      contribution: "",
+      duration: "",
+      wardCode: "",
+      votersPin: "",
+      position: "",
+      qualification: "HND",
+      error: "",
+      loading: false,
+      success: false
     };
   },
+
   methods: {
+    onQualification: function(event) {
+      this.qualification = event.target.value;
+      console.log(event.target.value);
+    },
     onGender: function(event) {
       this.gender = event.target.value;
       console.log(event.target.value);
     },
-    onMarital: function(event) {
-      this.marital = event.target.value;
+    onMaritalStatus: function(event) {
+      this.maritalStatus = event.target.value;
       console.log(event.target.value);
     },
-    changeposition: function(event) {
-      this.position = event.target.value;
-      console.log(event.target.value);
-    },
-
-    async handleSubmit({ $axios }) {
-      this.loading = true;
-      const datas = {
-        partyName: this.partyname,
-        partyCode: this.partycode,
-        wardCode: this.wardcode,
-        votersCard: this.voterspin,
-        registrationDate: this.registrationdate,
-        yearsOfExperience: this.experience,
-        performanceInOffice: this.performance,
-        maritalStatus: this.marital,
-        position: this.position
-      };
-      this.$axios
-        .post("/api/v1/party/", datas, {
-          headers: {
-            Authorization: "Token " + localStorage.getItem("token")
+    signup() {
+      console.log(this.noOfPosition);
+      this.$apollo
+        .mutate({
+          mutation: PARTY_MUTATION,
+          variables: {
+            username: this.username,
+            fullName: this.fullname,
+            email: this.email,
+            phoneNumber: this.phoneNumber,
+            dateOfBirth: this.dateOfBirth,
+            sex: this.sex,
+            maritalStatus: this.maritalStatus,
+            noOfPosition: this.noOfPosition,
+            attendance: this.attendance,
+            performance: this.performance,
+            partyName: this.partyName,
+            partyCode: this.partyCode,
+            contribution: this.contribution,
+            duration: this.duration,
+            wardCode: this.wardCode,
+            votersPin: this.votersPin,
+            position: this.position,
+            qualification: this.qualification
           }
         })
         .then(response => {
-          console.log(response.data);
-          if (response.status === 201) {
-            console.log(response.data);
-            this.loading = false;
-            window.location.href = "/successful";
-          }
+          window.location.href = "/successful";
+          // redirect to login page
+          // this.$router.replace("/login");
         })
-
         .catch(error => {
           this.loading = false;
           console.log(error.response);
@@ -206,7 +276,11 @@ export default {
   }
 };
 </script>
+
 <style>
+.body {
+  background-color: #eeeeee;
+}
 .btn-success {
   background: rgb(41, 4, 65);
 }
@@ -252,7 +326,6 @@ h4 {
   background-color: white;
   border: 2px solid #eeeeee;
   box-shadow: inset;
-
   border-radius: 5px;
   color: dimgrey;
 }
