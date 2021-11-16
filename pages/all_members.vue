@@ -58,7 +58,7 @@
                   <div class="sb-nav-link-icon">
                     <i class="fas fa-columns"></i>
                   </div>
-                  Graph Database
+                  All Mebers
                   <div class="sb-sidenav-collapse-arrow">
                     <i class="fas fa-angle-down"></i>
                   </div>
@@ -154,38 +154,56 @@
           <main>
             <div class="container-fluid px-4">
               <h1 class="mt-4">Graph Database</h1>
-              <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active">
-                  Query database
-                </li>
-              </ol>
-              <a style="float:right" href="/all_members" class="btn btn-success"
-                >All members</a
-              >
-              <div class="row">
-                <div class="col-lg-3"></div>
-                <div class="col-lg-6">
-                  <form action="" method="post" @submit.prevent="search">
-                    <input
-                      type="text"
-                      name=""
-                      v-model="username"
-                      placeholder="Username"
-                      class="form-control"
-                      required
-                      id=""
-                    /><br />
 
-                    <center>
-                      <input
-                        type="submit"
-                        class="btn btn-lg btn-success"
-                        value="Submit"
-                      />
-                    </center>
-                  </form>
+              <a style="float:right" href="" class="btn btn-success"
+                >All members</a
+              ><br />
+              <br />
+              <div class="row" style="clear:both">
+                <div class="container">
+                  <table
+                    class="table table-hover table-bordered table-condensed"
+                  >
+                    <thead>
+                      <th>Username</th>
+                      <th>Fullname</th>
+                      <th>Mobile</th>
+                      <th>Qualification</th>
+                      <th>Sex</th>
+                      <th>Marital</th>
+                      <th>Positions</th>
+                      <th>Attendance</th>
+                      <th>Performance</th>
+                      <th>Party name</th>
+                      <th>Party code</th>
+                      <th>Contribution</th>
+                      <th>duration</th>
+                      <th>Ward code</th>
+                      <th>Voters Pin</th>
+                      <th>Position</th>
+                    </thead>
+                    <tbody>
+                      <tr v-for="item in users" :key="item.email">
+                        <td>{{ item.username }}</td>
+                        <td>{{ item.fullName }}</td>
+                        <td>{{ item.phoneNumber }}</td>
+                        <td>{{ item.qualification }}</td>
+                        <td>{{ item.sex }}</td>
+                        <td>{{ item.maritalStatus }}</td>
+                        <td>{{ item.noOfPosition }}</td>
+                        <td>{{ item.attendance }}</td>
+                        <td>{{ item.performance }}</td>
+                        <td>{{ item.partyName }}</td>
+                        <td>{{ item.partyCode }}</td>
+                        <td>{{ item.contribution }}</td>
+                        <td>{{ item.duration }}</td>
+                        <td>{{ item.wardCode }}</td>
+                        <td>{{ item.votersPin }}</td>
+                        <td>{{ item.position }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-                <div class="col-lg-3"></div>
               </div>
             </div>
           </main>
@@ -205,17 +223,7 @@
           </footer>
         </div>
       </div>
-      <!-- <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-      crossorigin="anonymous"
-    ></script> -->
-      <!-- <script src="js/scripts.js"></script> -->
-      <!-- <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-      crossorigin="anonymous"
-    ></script> -->
-      <!-- <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script> -->
+
       <script
         src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
         crossorigin="anonymous"
@@ -226,28 +234,26 @@
 </template>
 
 <script>
-import { QUERYBYUSERNAME } from "@/querymemberbyid";
+import { QUERYPARTYMEMBERS } from "@/querymembers";
+
 export default {
   data() {
     return {
-      users: [],
-      username: "",
-      data: ""
+      users: []
     };
   },
+  mounted() {
+    this.getMembers();
+  },
   methods: {
-    search() {
-      console.log(this.username);
+    getMembers() {
       this.$apollo
         .query({
-          query: QUERYBYUSERNAME,
-          variables: {
-            username: this.username
-          }
+          query: QUERYPARTYMEMBERS
         })
         .then(response => {
-          console.log(error.response);
-          this.data = response.data.partymember;
+          this.users = response.data.allPartymembers;
+          console.log(response.data.allPartymembers);
         })
         .catch(error => {
           console.log(error.response);

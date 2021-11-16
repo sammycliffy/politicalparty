@@ -51,4 +51,4 @@ export const PARTY_MUTATION = gql`
     
   }`
 
- 
+

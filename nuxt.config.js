@@ -62,11 +62,11 @@ export default {
     // baseURL: 'http://localhost:8000', 
     
   },
-
+  // https://djangograph.herokuapp.com/graphql
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: 'https://djangograph.herokuapp.com/graphql',
+        httpEndpoint: 'http://localhost:8000/graphql',
       }
     },
   
