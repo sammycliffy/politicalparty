@@ -105,8 +105,8 @@
               <option value="HND">FSLC</option> </select
             ><br />
             <label for="date">Position Elected</label>
-            <select name="cars" id="cars" class="form-control">
-              <option value="WARDLEADER">Ward Leader</option>
+            <select @change="onPosition($event)" class="form-control">
+              <option value="WARDLEADER">Member</option>
               <option value="VICECHAIRMAN">Ward Chairman</option>
               <option value="WARDCHAIRMAN">Vice Ward Chairman</option>
               <option value="SECRETARY">Secretary</option>
@@ -120,7 +120,7 @@
               <option value="LEGALADVISER">LG legal adviser</option>
               <option value="STATECHAIRMAN">State Chairman</option>
               <option value="VICESTATECHAIRMAN">Vice state Chairman</option>
-              <option value="NOPOSITION">No Position</option>
+              <option value="NOPOSITION">Ward Leader</option>
               <option value="STATEORGANIZING">State organizing</option> </select
             ><br />
 
@@ -201,8 +201,8 @@ export default {
       email: "",
       phoneNumber: "",
       dateOfBirth: "",
-      sex: "",
-      maritalStatus: "",
+      sex: "Male",
+      maritalStatus: "Single",
       noOfPosition: "",
       attendance: "",
       performance: "",
@@ -212,7 +212,7 @@ export default {
       duration: "",
       wardCode: "",
       votersPin: "",
-      position: "",
+      position: "Member",
       qualification: "HND",
       error: "",
       loading: false,
@@ -226,11 +226,15 @@ export default {
       console.log(event.target.value);
     },
     onGender: function(event) {
-      this.gender = event.target.value;
+      this.sex = event.target.value;
       console.log(event.target.value);
     },
     onMaritalStatus: function(event) {
       this.maritalStatus = event.target.value;
+      console.log(event.target.value);
+    },
+    onPosition: function(event) {
+      this.position = event.target.value;
       console.log(event.target.value);
     },
     signup() {

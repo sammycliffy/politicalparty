@@ -63,6 +63,7 @@ export default {
     
   },
   // https://djangograph.herokuapp.com/graphql
+
   apollo: {
     clientConfigs: {
       default: {

@@ -54,7 +54,7 @@
                   <p id="message">
                     Congratulations, your data has been added.
                   </p>
-                  <a href="/" id="contBtn">Continue</a>
+                  <a href="/admin" id="contBtn">Continue</a>
                 </div>
               </div>
               <!-- partial -->

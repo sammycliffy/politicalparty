@@ -1,38 +1,44 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3"></div>
-      <div class="col-lg-6">
-        <br /><br />
-        <div class="heading"><span>Admin login</span></div>
-        <div class="center-div">
-          <p style="color:red;">{{ error }}</p>
-          <form method="post" @submit.prevent="handleSubmit">
-            <label for="email">Email</label><br />
-            <input
-              type="email"
-              class="form-control"
-              v-model="email"
-              required
-            /><br />
-            <label for="password">Password</label><br />
-            <input
-              type="password"
-              v-model="password"
-              required
-              class="form-control"
-            />
-            <br />
-            <center>
-              <input type="submit" class="btn btn-primary" value="Login" />
+  <div class="body">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+          <br /><br />
+          <div class="heading"><span>Admin login</span></div>
+          <div class="center-div">
+            <p style="color:red;">{{ error }}</p>
+            <form method="post" @submit.prevent="handleSubmit">
+              <label for="email">Email</label><br />
+              <input
+                type="email"
+                class="form-control"
+                v-model="email"
+                required
+              /><br />
+              <label for="password">Password</label><br />
+              <input
+                type="password"
+                v-model="password"
+                required
+                class="form-control"
+              />
               <br />
-              <br />
-              <!-- <a href="/registration">Register a new member</a> -->
-            </center>
-          </form>
+              <center>
+                <input
+                  type="submit"
+                  class="btn btn-lg btn-success"
+                  value="Login"
+                />
+                <br />
+                <br />
+                <!-- <a href="/registration">Register a new member</a> -->
+              </center>
+            </form>
+          </div>
         </div>
+        <div class="col-lg-3"></div>
       </div>
-      <div class="col-lg-3"></div>
     </div>
   </div>
 </template>
@@ -80,6 +86,11 @@ export default {
 </script>
 
 <style>
+.body {
+  background-color: #eeeeee;
+  height: 700px;
+  background: url("./static/assets/admin.jpg");
+}
 .btn-success {
   background: #000000;
 }
