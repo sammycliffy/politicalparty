@@ -119,12 +119,6 @@
           </footer>
         </div>
       </div>
-
-      <script
-        src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
-        crossorigin="anonymous"
-      ></script>
-      <script src="datatables-simple-demo.js"></script>
     </body>
   </div>
 </template>
