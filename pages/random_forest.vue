@@ -86,7 +86,7 @@
                       <input
                         type="submit"
                         class="btn btn-lg btn-success"
-                        value="Submit"
+                        value="Classify"
                       />
                     </center>
                   </form>
