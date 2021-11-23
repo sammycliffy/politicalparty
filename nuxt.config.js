@@ -67,7 +67,7 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: 'http://djangograph.herokuapp.com/graphql',
+        httpEndpoint: 'https://djangograph.herokuapp.com/graphql',
       }
     },
   
