@@ -19,14 +19,14 @@ export default {
 
     ],
     script: [
-      {
-        type: 'text/javascript',
-        src: 'https://cdn.jsdelivr.net/npm/simple-datatables@latest',
-      },
-      {
-        type: 'text/javascript',
-        src: '/datatables-simple-demo.js',
-      },
+      // {
+      //   type: 'text/javascript',
+      //   src: 'https://cdn.jsdelivr.net/npm/simple-datatables@latest',
+      // },
+      // {
+      //   type: 'text/javascript',
+      //   src: '/datatables-simple-demo.js',
+      // },
     ]
   },
 
