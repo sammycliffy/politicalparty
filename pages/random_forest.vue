@@ -125,7 +125,7 @@ export default {
         })
         .then(response => {
           this.group = response.data.randomMutation.testClass.classification;
-          alert();
+
           // window.location.href = "/successful";
           // redirect to login page
           // this.$router.replace("/login");
