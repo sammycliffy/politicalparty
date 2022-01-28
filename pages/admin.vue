@@ -27,7 +27,7 @@
               <br />
               <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">
-                  Random Forest and GraphQL
+                  GraphQL Model with Random Forest Classification
                 </li>
               </ol>
               <div class="row">
@@ -85,12 +85,12 @@
                 </div>
                 <div class="col-xl-3 col-md-6">
                   <div class="card bg-danger text-white mb-4">
-                    <div class="card-body">National Executive</div>
+                    <div class="card-body">Output/Evaluation Metrics</div>
                     <div
                       class="card-footer d-flex align-items-center justify-content-between"
                     >
                       <a class="small text-white stretched-link" href="#"
-                        >Perform Prediction</a
+                        >Results</a
                       >
                       <div class="small text-white">
                         <i class="fas fa-angle-right"></i>
@@ -106,11 +106,11 @@
               <div
                 class="d-flex align-items-center justify-content-between small"
               >
-                <div class="text-muted">Copyright &copy;</div>
                 <div>
-                  <a href="#">Privacy Policy</a>
-                  &middot;
-                  <a href="#">Terms &amp; Conditions</a>
+                  <h4>
+                    Developed by Obasi Emmnauela Chinonye Mary,
+                    G2015/PhD/Comp/543
+                  </h4>
                 </div>
               </div>
             </div>

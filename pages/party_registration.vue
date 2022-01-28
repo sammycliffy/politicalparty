@@ -151,7 +151,7 @@
               v-model="noOfPosition"
               required
             /><br />
-            <label for="date">Performance</label>
+            <label for="date">Loyalty</label>
             <input
               type="number"
               class="form-control"
