@@ -27,7 +27,7 @@
               <br />
               <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">
-                  GraphQL Model with Random Forest Classification
+                  GraphQL and Random Forest Predictive Model
                 </li>
               </ol>
               <div class="row">
@@ -89,7 +89,9 @@
                     <div
                       class="card-footer d-flex align-items-center justify-content-between"
                     >
-                      <a class="small text-white stretched-link" href="#"
+                      <a
+                        class="small text-white stretched-link"
+                        href="/evaluation_metrics"
                         >Results</a
                       >
                       <div class="small text-white">
