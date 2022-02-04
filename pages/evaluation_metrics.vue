@@ -24,7 +24,7 @@
                   <p>True Positives</p>
                 </div>
                 <div class="col-lg-6">
-                  <input type="text" value="129" class="form-control" />
+                  <input type="text" value="127" class="form-control" />
                 </div>
                 <div class="col-lg-6">
                   <div></div>
@@ -38,14 +38,14 @@
                   <p>False Positives</p>
                 </div>
                 <div class="col-lg-6">
-                  <input type="text" value="2" class="form-control" />
+                  <input type="text" value="1" class="form-control" />
                 </div>
                 <div class="col-lg-6">
                   <div></div>
-                  <p>Time Negative</p>
+                  <p>True Negative</p>
                 </div>
                 <div class="col-lg-6">
-                  <input type="text" value="2" class="form-control" />
+                  <input type="text" value="71" class="form-control" />
                 </div>
                 <div class="col-lg-6">
                   <div></div>
