@@ -55,31 +55,24 @@ export default {
 
   methods: {
     async handleSubmit({ $axios }) {
-      window.location.href = "/admin";
-      //   this.loading = true;
-      //   const datas = {
-      //     email: this.email,
-      //     password: this.password
-      //   };
-      //   this.$axios
-      //     .post("/api/v1/login/", datas)
-      //     .then(response => {
-      //       console.log(response.data);
-      //       if (response.status === 201) {
-      //         localStorage.setItem("token", response.data.token);
-      //         console.log(response.data);
-      //         this.loading = false;
-      //         window.location.href = "/admin";
-      //       }
-      //     })
-      //     .catch(error => {
-      //       this.loading = false;
-      //       console.log(error.response);
-      //       for (const [key, value] of Object.entries(error.response.data)) {
-      //         var str = `${key}: ${value}`;
-      //         this.error = str.substring(str.indexOf(":") + 1);
-      //       }
-      //     });
+      var email1 = "chinonyeobasi20@gmail.com";
+      var email2 = "obasichinonye4@gmail.com";
+      var email3 = "anchinos@yahoo.co.uk";
+      var pass = "nono123$";
+      var pass1 = "emma123$";
+      if (
+        this.email === email1 ||
+        this.email === email2 ||
+        this.email === email3
+      ) {
+        if (this.password === pass) {
+          window.location.href = "/admin";
+        } else {
+          this.error = "Password is not correct";
+        }
+      } else {
+        this.error = "Email address not correct";
+      }
     }
   }
 };
