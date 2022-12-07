@@ -32,10 +32,10 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    
-    
-      
-    
+
+
+
+
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -58,9 +58,9 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'https://phdpolitical.herokuapp.com',
-    // baseURL: 'http://localhost:8000', 
-    
+    // baseURL: 'https://phdpolitical.herokuapp.com',
+    baseURL: 'http://localhost:8000',
+
   },
   // https://djangograph.herokuapp.com/graphql
 
@@ -70,11 +70,11 @@ export default {
         httpEndpoint: 'https://djangograph.herokuapp.com/graphql',
       }
     },
-  
+
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
     }
   }
-  
+
 }

@@ -97,7 +97,6 @@
 </template>
 
 <script>
-import { CLASSIFICATION } from "@/classification";
 export default {
   data() {
     return {
@@ -112,32 +111,43 @@ export default {
   },
   methods: {
     classification() {
-      this.$apollo
-        .mutate({
-          mutation: CLASSIFICATION,
-          variables: {
-            attendance: this.attendance,
-            contribution: this.contribution,
-            duration: this.duration,
-            noOfPosition: this.noOfPosition,
-            loyalty: this.loyalty
-          }
-        })
-        .then(response => {
-          this.group = response.data.randomMutation.testClass.classification;
+      this.group = 0;
+      if (
+        this.attendance >= 50 &&
+        this.loyalty >= 5 &&
+        this.contribution >= 40 &&
+        this.noOfPosition >= 1 &&
+        this.duration >= 2
+      ) {
+        this.group = 1;
+      }
 
-          // window.location.href = "/successful";
-          // redirect to login page
-          // this.$router.replace("/login");
-        })
-        .catch(error => {
-          this.loading = false;
-          console.log(error.response);
-          for (const [key, value] of Object.entries(error.response.data)) {
-            var str = `${key}: ${value}`;
-            this.error = str.substring(str.indexOf(":") + 1);
-          }
-        });
+      // this.$apollo
+      //   .mutate({
+      //     mutation: CLASSIFICATION,
+      //     variables: {
+      //       attendance: this.attendance,
+      //       contribution: this.contribution,
+      //       duration: this.duration,
+      //       noOfPosition: this.noOfPosition,
+      //       loyalty: this.loyalty
+      //     }
+      //   })
+      //   .then(response => {
+      //     this.group = response.data.randomMutation.testClass.classification;
+
+      //     // window.location.href = "/successful";
+      //     // redirect to login page
+      //     // this.$router.replace("/login");
+      //   })
+      //   .catch(error => {
+      //     this.loading = false;
+      //     console.log(error.response);
+      //     for (const [key, value] of Object.entries(error.response.data)) {
+      //       var str = `${key}: ${value}`;
+      //       this.error = str.substring(str.indexOf(":") + 1);
+      //     }
+      //   });
     }
   }
 };
